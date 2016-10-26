@@ -32,6 +32,8 @@ class Jukebox::CLI
         puts "More info on Twenty One Pilots...\n"
       when "list"
         list_concerts
+      else
+        puts "\nSorry, but Jukebox doesn't recognize that."
       end
     end
   end
