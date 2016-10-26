@@ -10,12 +10,11 @@ class Jukebox::CLI
 
   def list_concerts
     puts "Here is a list of upcoming concerts in the Memphis area:\n\n"
-    puts <<-DOC.gsub /^\s*/, ''
-    1. Panic at the Disco
-    2. Twenty One Pilots
-    DOC
-
+    
     @concerts = Jukebox::Concert.concerts
+    @concerts.each.with_index(1) do |concert, i|
+      puts "#{i}. #{concert.artist_name}"
+    end
   end
 
   def menu
@@ -26,14 +25,12 @@ class Jukebox::CLI
       "type exit to leave Jukebox: "
 
       input = gets.strip.downcase
-
-      case input
-      when "1"
-        puts "More info on P!ATD...\n"
-      when "2"
-        puts "More info on Twenty One Pilots...\n"
-      when "list"
+      if input.to_i > 0
+        puts @concerts[input.to_i - 1]
+      elsif input == "list"
         list_concerts
+      elsif input == "exit"
+        break
       else
         puts "\nSorry, but Jukebox doesn't recognize that."
       end
