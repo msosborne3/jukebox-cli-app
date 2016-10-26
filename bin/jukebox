@@ -1,6 +1,8 @@
 #!/usr/bin/env ruby
 
-require './lib/jukebox'
+#require './lib/jukebox'
+require "bundler/setup"
+require "jukebox"
 
 Jukebox::CLI.new.call
 
