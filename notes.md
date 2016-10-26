@@ -25,3 +25,7 @@ Fedex Forum Memphis, tn
 
 Type menu to return to the home screen
 Type list to return to the list of concerts in your zip code
+
+Thoughts:
+Where will I get the concert list? Ticketmaster, Eventful, ???
+Need to check for duplicates if getting from multiple places.
