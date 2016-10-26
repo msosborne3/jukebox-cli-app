@@ -14,6 +14,8 @@ class Jukebox::CLI
     1. Panic at the Disco
     2. Twenty One Pilots
     DOC
+
+    @concerts = Jukebox::Concert.concerts
   end
 
   def menu
