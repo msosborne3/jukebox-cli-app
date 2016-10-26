@@ -3,3 +3,5 @@
 require './lib/jukebox'
 
 Jukebox::CLI.new.call
+
+# now everything can be coded directly into the cli Controller
