@@ -1,0 +1,9 @@
+#!/usr/bin/env ruby
+
+#require './lib/jukebox'
+require "bundler/setup"
+require "jukebox"
+
+Jukebox::CLI.new.call
+
+# now everything can be coded directly into the cli Controller
