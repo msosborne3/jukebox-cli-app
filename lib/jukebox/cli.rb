@@ -10,10 +10,10 @@ class Jukebox::CLI
 
   def list_concerts
     puts "Here is a list of upcoming concerts in the Memphis area:\n\n"
-    
+
     @concerts = Jukebox::Concert.concerts
     @concerts.each.with_index(1) do |concert, i|
-      puts "#{i}. #{concert.artist_name}"
+      puts "#{i}. #{concert.artist_name} - #{concert.date}"
     end
   end
 
@@ -26,7 +26,10 @@ class Jukebox::CLI
 
       input = gets.strip.downcase
       if input.to_i > 0
-        puts @concerts[input.to_i - 1]
+        the_concert = @concerts[input.to_i - 1]
+        puts "\nArtist name: #{the_concert.artist_name}"
+        puts "Date: #{the_concert.date}"
+        puts "Location: #{the_concert.location}"
       elsif input == "list"
         list_concerts
       elsif input == "exit"
