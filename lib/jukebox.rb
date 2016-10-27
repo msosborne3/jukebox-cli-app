@@ -1,3 +1,6 @@
+require 'open-uri'
+require 'nokogiri'
+
 require_relative "./jukebox/version"
 require_relative './jukebox/cli'
 require_relative './jukebox/concert'
