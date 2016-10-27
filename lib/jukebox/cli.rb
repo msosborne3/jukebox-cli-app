@@ -31,6 +31,7 @@ class Jukebox::CLI
           puts "\nArtist name: #{the_concert.artist_name}"
           puts "Date: #{the_concert.date}"
           puts "Location: #{the_concert.location}"
+          puts "Buy tickets: #{the_concert.url}"
         else
           puts "\nSorry, but Jukebox doesn't recognize that."
         end
