@@ -9,11 +9,11 @@ class Jukebox::CLI
   end
 
   def list_concerts
-    puts "Here is a list of upcoming concerts in the Memphis area:\n\n"
+    puts "Here is a list of artists coming to the Memphis area:\n\n"
 
-    @concerts = Jukebox::Concert.concerts
+    @concerts = Jukebox::Concert.scrape_concerts
     @concerts.each.with_index(1) do |concert, i|
-      puts "#{i}. #{concert.artist_name} - #{concert.date}"
+      puts "#{i}. #{concert.artist_name}"
     end
   end
 
@@ -26,10 +26,14 @@ class Jukebox::CLI
 
       input = gets.strip.downcase
       if input.to_i > 0
-        the_concert = @concerts[input.to_i - 1]
-        puts "\nArtist name: #{the_concert.artist_name}"
-        puts "Date: #{the_concert.date}"
-        puts "Location: #{the_concert.location}"
+        if(@concerts[input.to_i - 1] != nil)
+          the_concert = @concerts[input.to_i - 1]
+          puts "\nArtist name: #{the_concert.artist_name}"
+          puts "Date: #{the_concert.date}"
+          puts "Location: #{the_concert.location}"
+        else
+          puts "\nSorry, but Jukebox doesn't recognize that."
+        end
       elsif input == "list"
         list_concerts
       elsif input == "exit"
